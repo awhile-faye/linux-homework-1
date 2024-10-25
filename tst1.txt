@@ -1,0 +1,48 @@
+%regular mandate：
+clear
+sudo rm -rf /usr/...
+(1)
+cd /usr/bin
+(2)
+ls /usr/local
+(3)
+cd /usr
+sudo mkdir /usr/test
+(usr下新生成一个目录test)
+ls -l | grep "^d" | wc -l
+(4)
+sudo mkdir /usr/test1
+(usr下新生成一个test1）
+sudo mkdir /usr/tmp
+sudo cp -r /usr/test1 /usr/tmp/
+(usr下新生成一个tmp，tmp中新生成一个test1）
+(5)
+sudo mv /usr/tmp/test1 tmp/test2
+(tmp下，重命名后应该只剩一个test2）
+(6)
+sudo touch /usr/tmp/test2/word.txt
+(test2下新生成一个word.txt)
+sudo vi /usr/tmp/test2/word.txt
+i
+write
+" esc "
+" shift + : "
+" wq "
+enter
+(7)
+cat /usr/tmp/test2/word.txt
+(test2下有一个txt)
+(8)
+sudo chown root /usr/tmp/test2/word.txt
+ls -l /usr/tmp/test2/word.txt
+(9)
+find /usr/tmp -name "test2"
+(10)
+sudo mkdir /usr/tmp/test2/test
+(此时test2下有test和txt)
+sudo tar -czvf /usr/tmp/test2/test.tar.gz /usr/tmp/test2/test/
+(11)
+bash
+sudo tar -xzvf /usr/tmp/test2/test.tar.gz -C /usr/tmp/
+(tmp下出现新文件夹usr)
+wget https://downloads.apache.org/hadoop/common/hadoop-3.4.0/hadoop-3.4.0.tar.gz
